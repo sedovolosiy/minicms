@@ -10,11 +10,11 @@ class admin extends ACore_Admin {
 		}
 		
 		echo "<div id='main'>";
-		echo "<a style='color:red' href='?option=add_statti'>Добавить новую ствтью</a><hr>";
-		if($_SESSION['res']) {
-			echo $_SESSION['res'];
-			unset($_SESSION['res']);
-		}
+		echo "<a style='color:red' href='?option=add_statti'>Добавить новую статью</a><hr>";
+//		if($_SESSION['res']) {
+//			echo $_SESSION['res'];
+//			unset($_SESSION['res']);
+//		}
 		
 		$row = array();
 		for($i = 0; $i < mysql_num_rows($result);$i++) {
@@ -24,7 +24,7 @@ class admin extends ACore_Admin {
 						<a style='color:red' href='?option=delete_statti&del=%s'>Удалить</a>
 					</p>",$row['id'],$row['title'],$row['id']);
 		}
-		
+
 		echo '</div>
 			</div>';
 	}

@@ -22,7 +22,7 @@ abstract class ACore_Admin {
 	}
 	
 	protected function get_header() {
-		include "header.php";
+		include "tpl/header.php";
 	}
 	
 	protected function get_left_bar() {
@@ -67,9 +67,9 @@ abstract class ACore_Admin {
 	
 	public function get_body() {
 		
-		if($_POST || $_GET['del']) {
-			$this->obr();
-		}
+//		if($_POST || $_GET['del']) {
+//			$this->obr();
+//		}
 		$this->get_header();
 		$this->get_left_bar();
 		$this->get_menu();

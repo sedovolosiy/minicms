@@ -30,9 +30,9 @@ abstract class ACore {
 	
 	
 	public function get_body($tpl) {
-//		if($_POST || $_GET['del']) {
-//			$this->obr();
-//		}
+		if($_POST || $_GET['del']) {
+			$this->obr();
+		}
 		$this->get_header();
 		$left_bar = $this->get_left_bar();
 		$menu_top = $this->get_menu();
