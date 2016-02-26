@@ -2,16 +2,16 @@
 class add_statti extends ACore_Admin {
 	
 	protected function obr() {
-		
-		if(!empty($_FILES['img_src']['tmp_name'])) {
-			if(!move_uploaded_file($_FILES['img_src']['tmp_name'],'file/'.$_FILES['img_src']['name'])) {
-				exit("Не удалось загрузить изображение");
-			}
-			$img_src = 'file/'.$_FILES['img_src']['name'];
-		}
-		else {
-			exit("Необходимо загрузить изображение");
-		}
+//
+//		if(!empty($_FILES['img_src']['tmp_name'])) {
+//			if(!move_uploaded_file($_FILES['img_src']['tmp_name'],'file/'.$_FILES['img_src']['name'])) {
+//				exit("Не удалось загрузить изображение");
+//			}
+//			$img_src = 'file/'.$_FILES['img_src']['name'];
+//		}
+//		else {
+//			exit("Необходимо загрузить изображение");
+//		}
 		
 		$title = $_POST['title'];
 		$date = date("Y-m-d",time());
@@ -37,8 +37,11 @@ class add_statti extends ACore_Admin {
 	}
 	
 	public function get_content() {
+		if (!empty($_POST)){
+			$this->obr();
+		}
 		echo "<div id='main'>";
-		if($_SESSION['res']) {
+		if (isset($_SESSION['res']) && !empty($_SESSION['res'])) {
 			echo $_SESSION['res'];
 			unset($_SESSION['res']);
 		}
@@ -62,7 +65,7 @@ HEREDOC;
 foreach($cat as $item) {
 	echo "<option value='".$item['id_category']."'>".$item['name_category']."</option>";
 }
-echo "</select><p><input type='submit' name='button' value='Сохранить'></p></form></div>
+echo "</select><p><input type='submit' name='button' value='Сохраниться'></p></form></div>
 			</div>";
 	}
 }
