@@ -98,8 +98,27 @@ class model
         return $row;
     }
 
-    public function get_content()
+    public function get_content_view()
     {
+        if (!$_GET['id_text'])
+        {
+            echo 'Не правильные данные для вывода статьи';
+        } else {
+            $id_text = (int)$_GET['id_text'];
+            if (!$id_text) {
+                echo 'Не правильные данные для вывода статьи';
+            } else {
+                $query = "SELECT title,text,date,id,img_src FROM statti WHERE id='$id_text'";
+                $result = mysql_query($query);
+                if (!$result) {
+                    exit(mysql_error());
+                }
+                $row = mysql_fetch_array($result, MYSQL_ASSOC);
+                return $row;
+            }
+        }
+    }
+
 
 
 }
