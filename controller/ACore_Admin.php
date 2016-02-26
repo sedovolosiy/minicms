@@ -66,10 +66,10 @@ abstract class ACore_Admin {
 	
 	
 	public function get_body() {
-		
-//		if($_POST || $_GET['del']) {
-//			$this->obr();
-//		}
+
+		if ($_POST || (isset($_GET['del']) && !empty($_GET['del']))) {
+			$this->obr();
+		}
 		$this->get_header();
 		$this->get_left_bar();
 		$this->get_menu();

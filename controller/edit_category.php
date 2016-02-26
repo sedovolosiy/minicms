@@ -11,7 +11,7 @@ class edit_category extends ACore_Admin {
 		
 		echo "<div id='main'>";
 		echo "<a style='color:red' href='?option=add_category'>Добавить новую категорию</a><hr>";
-		if($_SESSION['res']) {
+		if (isset($_SESSION['res']) && !empty($_SESSION['res'])) {
 			echo $_SESSION['res'];
 			unset($_SESSION['res']);
 		}

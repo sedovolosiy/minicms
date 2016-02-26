@@ -33,7 +33,7 @@ class update_menu extends ACore_Admin {
 		
 		$menu = $this->get_text_menu($id_text);
 		echo "<div id='main'>";
-		if($_SESSION['res']) {
+		if (isset($_SESSION['res']) && !empty($_SESSION['res'])) {
 			echo $_SESSION['res'];
 			unset($_SESSION['res']);
 		}

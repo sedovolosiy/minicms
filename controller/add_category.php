@@ -24,7 +24,7 @@ class add_category extends ACore_Admin {
 	
 	public function get_content() {
 		echo "<div id='main'>";
-		if($_SESSION['res']) {
+		if (isset($_SESSION['res']) && !empty($_SESSION['res'])) {
 			echo $_SESSION['res'];
 			unset($_SESSION['res']);
 		}

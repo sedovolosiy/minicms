@@ -11,7 +11,7 @@ class edit_menu extends ACore_Admin {
 		
 		echo "<div id='main'>";
 		echo "<a style='color:red' href='?option=add_menu'>Добавить новое меню</a><hr>";
-		if($_SESSION['res']) {
+		if (isset($_SESSION['res']) && !empty($_SESSION['res'])) {
 			echo $_SESSION['res'];
 			unset($_SESSION['res']);
 		}
