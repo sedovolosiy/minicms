@@ -57,7 +57,9 @@ class update_statti extends ACore_Admin
 <input type='hidden' name='id' style='width:420px;' value='$text[id]'>
 </p>
 <p>Изображение:<br />
-<input type='file' name='img_src'>
+<p><img style='margin-right:5px' width='150px' align='left' src='$text[img_src]'>
+
+<input type='file' name='img_src' value='$text[img_src]'>
 </p>
 <p>Краткое описание:<br />
 <textarea name='discription' cols='50' rows='7'>$text[discription]</textarea>

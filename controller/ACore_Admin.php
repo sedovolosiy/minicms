@@ -94,7 +94,7 @@ abstract class ACore_Admin {
 	}
 	
 	protected function get_text_statti($id) {
-		$query = "SELECT id,title,discription,text,cat FROM statti WHERE id='$id'";
+		$query = "SELECT id,title,img_src,discription,text,cat FROM statti WHERE id='$id'";
 		$result = mysql_query($query);
 		if(!$result) {
 			exit(mysql_error());
