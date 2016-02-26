@@ -3,7 +3,7 @@
 class login extends ACore{
 	
 	protected function obr() {
-		$login = strip_tags(mysql_real_escape_string($_POST['login']));
+		$login = strip_tags(mysql_real_escape_string($_POST['login'])); //strip_tags -Удаляет HTML и PHP тэги из строки
 		$password = strip_tags(mysql_real_escape_string($_POST['password']));
 
 		if(!empty($login) AND !empty($password)) {
@@ -11,7 +11,7 @@ class login extends ACore{
 			$query = "SELECT id FROM users WHERE login='$login' AND pass = '$password'";
 			
 			if(!$result = mysql_query($query)) {
-				exit(mysql_error());
+				exit(mysql_error());//exit - выводит сообщение и прекращает выполнение текущего скрипта.
 			}
 			
 			if(mysql_num_rows($result) == 1) {
@@ -20,11 +20,11 @@ class login extends ACore{
 				exit;
 			}
 			else {
-				exit("Таого пользователя нет");
+				exit("Такого пользователя нет");
 			}
 		}
 		else {
-			exit("Заолните обязательные поля");
+			exit("Заполните обязательные поля");
 		}
 	}
 	

@@ -2,7 +2,7 @@
 session_start();
 header("Content-Type:text/html;charset=UTF-8");
 
-require_once("config.php");
+require_once("config.php"); //Конструкция однократных включений
 
 function __autoload($c)
 {
@@ -13,14 +13,15 @@ function __autoload($c)
     }
 
 }
-
+//isset - определяет, установлена ли переменная.
+//if (isset($_GET['option']) && !empty($_GET['option']))
 if (isset($_GET['option']) && !empty($_GET['option'])) {
-    $class = trim(strip_tags($_GET['option']));
+    $class = trim(strip_tags($_GET['option'])); //trim - удаляет из начала и конца строки
 } else {
     $class = 'main';
 }
 
-
+//class_exists - Проверяет, был ли объявлен класс
 if (class_exists($class)) {
 
     $obj = new $class;
