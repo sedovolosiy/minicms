@@ -6,7 +6,7 @@
 <link href="style/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-
+<center>
 	<div id="border">
 		<div id="header">
 			<div id="left">
