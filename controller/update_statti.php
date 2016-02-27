@@ -6,8 +6,10 @@ class update_statti extends ACore_Admin
     protected function obr()
     {
 
-        if (!empty($_FILES['img_src']['tmp_name'])) {
-            if (!move_uploaded_file($_FILES['img_src']['tmp_name'], 'file/' . $_FILES['img_src']['name'])) {
+        if (!empty($_FILES['img_src']['tmp_name']))
+        {
+            if (!move_uploaded_file($_FILES['img_src']['tmp_name'], 'file/' . $_FILES['img_src']['name']))
+            {
                 exit("Не удалось загрузить изображение");
             }
             $img_src = 'file/' . $_FILES['img_src']['name'];
@@ -20,11 +22,18 @@ class update_statti extends ACore_Admin
         $text = $_POST['text'];
         $cat = $_POST['cat'];
 
+
         if (empty($title) || empty($text) || empty($discription)) {
             exit("Не заполнены обязательные поля");
         }
+        if ($img_src) {
 
-        $query = "UPDATE  statti SET title='$title',img_src='$img_src',date='$date',text='$text',discription='$discription',cat='$cat' WHERE id='$id'";
+            $query = "UPDATE  statti SET title='$title',img_src='$img_src',date='$date',text='$text',discription='$discription',cat='$cat' WHERE id='$id'";
+        } else
+        {
+            $query = "UPDATE  statti SET title='$title',date='$date',text='$text',discription='$discription',cat='$cat' WHERE id='$id'";
+        }
+
         if (!mysql_query($query)) {
             exit(mysql_error());
         } else {
@@ -59,7 +68,7 @@ class update_statti extends ACore_Admin
 <p>Изображение:<br />
 <p><img style='margin-right:5px' width='150px' align='left' src='$text[img_src]'>
 
-<input type='file' name='img_src' value='$text[img_src]'>
+<input type='file' name='img_src' value=''>
 </p>
 <p>Краткое описание:<br />
 <textarea name='discription' cols='50' rows='7'>$text[discription]</textarea>
