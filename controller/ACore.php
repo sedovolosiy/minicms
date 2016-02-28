@@ -30,7 +30,7 @@ abstract class ACore {
 	
 	
 	public function get_body($tpl) {
-		if ($_POST || (isset($_GET['del']) && !empty($_GET['del']))) {
+		if ($_POST) {
 			$this->obr();
 		}
 		$this->get_header();
